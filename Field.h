@@ -1,28 +1,29 @@
+#include <iostream>
 #include <string>
 
 #define H_SIZE 10 // horizontal size
 #define V_SIZE 10 // vertical size
 
-#define EMPTY_S ' ' // empty symbol
-#define SHIP_S 'S' // ship symbol
-#define HIT_SHIP_S 'X' // hitted ship symbol
-#define MISS_SHIP_S '*' // missed ship symbol
+#define EMPTY_CHAR ' ' // empty character
+#define SHIP_CHAR 'S' // ship character
+#define HIT_SHIP_CHAR 'X' // hitted ship character
+#define MISS_SHIP_CHAR '*' // missed ship character
 
 #define LINKOR_SIZE 4
 #define CRUISER_SIZE 3
 #define DESTROYER_SIZE 2
 #define BOAT_SIZE 1
 
-#define TEMP_HIT_S 'T'
+#define TEMP_SHIP_CHAR 'T'
+
+#define PLAYER1 1
+#define PLAYER2 2
 
 class Field {
 private:
-	char field[H_SIZE][V_SIZE];
+	char field[V_SIZE][H_SIZE];
+	void clearField();
 public:
 	Field();
-	void clearField();
-	void printField();
-	void strike(int x, int y);
-	int addShip(int, std::string, int);
-	char getCell(int x, int y);
+	char* getCell(int x, int y);
 };
