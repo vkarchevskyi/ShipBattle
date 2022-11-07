@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 
 #define H_SIZE 10 // horizontal size
 #define V_SIZE 10 // vertical size
@@ -19,11 +20,31 @@
 #define PLAYER1 1
 #define PLAYER2 2
 
+using namespace std;
+
+enum DIRECTIONS {
+	LEFT,
+	UP,
+	RIGHT,
+	DOWN,
+};
+
+struct Ship {
+	int startX;
+	int startY;
+	int size;
+	DIRECTIONS direction;
+	int hittedTimes = 0;
+};
+
 class Field {
 private:
 	char field[V_SIZE][H_SIZE];
 	void clearField();
+	vector<Ship> ships;
 public:
 	Field();
-	char* getCell(int x, int y);
+	char* getCell(int, int);
+	void addShip(Ship);
+	vector<Ship>* getAllShips();
 };

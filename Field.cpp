@@ -17,3 +17,11 @@ void Field::clearField() {
 char* Field::getCell(int x, int y) {
 	return &field[y][x];
 }
+
+void Field::addShip(Ship ship) {
+	ships.push_back(ship);
+}
+
+vector<Ship>* Field::getAllShips() {
+	return &ships;
+}

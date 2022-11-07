@@ -2,7 +2,7 @@
 
 std::string Utils::coordsFromInput(std::string strCoords) {
 	if (strCoords.length() < 2 || strCoords.length() > 3 ||
-		strCoords[0] < 'A' || strCoords[0] > 'Z' ||
+		strCoords[0] < 'A' || strCoords[0] > 'J' ||
 		strCoords[1] < '0' || strCoords[1] > '9'
 		) {
 		return "-1";
