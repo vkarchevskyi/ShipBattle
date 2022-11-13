@@ -11,6 +11,15 @@
 
 using namespace std;
 
+Controller::Controller() {
+	//this->player1 = Player(true);
+	//this->player2 = Player(false);
+	this->player1 = new Player();
+	this->player2 = new Player();
+	this->currentPlayer = player1;
+	this->currentEnemy = player2;
+}
+
 void Controller::pressAnyKey() {
 	cout << "\nPress any key to continue\n";
 	_getch();
@@ -19,7 +28,7 @@ void Controller::pressAnyKey() {
 
 void Controller::init() {
 	cout << "PLAYER 1: \n\n";
-	changePlayer(); // test
+	// changePlayer(); // test
 	createField();
 	currentPlayer->printField(false);
 	pressAnyKey();
@@ -76,13 +85,13 @@ void Controller::getInput(const int amount, std::string shipType) {
 }
 
 void Controller::changePlayer() {
-	if (currentPlayer == &player1) {
-		currentPlayer = &player2;
-		currentEnemy = &player1;
+	if (currentPlayer == player1) {
+		currentPlayer = player2;
+		currentEnemy = player1;
 	}
 	else {
-		currentPlayer = &player1;
-		currentEnemy = &player2;
+		currentPlayer = player1;
+		currentEnemy = player2;
 	}
 }
 

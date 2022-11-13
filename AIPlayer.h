@@ -1,6 +1,6 @@
 #include "AbstractPlayer.h"
 
-class Player : public AbstractPlayer {
+class AI : public AbstractPlayer {
 protected:
 	virtual int* getDirectionVector(int);
 public:
