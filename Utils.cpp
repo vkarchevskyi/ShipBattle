@@ -23,3 +23,9 @@ std::string Utils::coordsFromInput(std::string strCoords) {
 
 	return strCoords;
 }
+
+std::string Utils::getRandomPoint() {
+	char line = rand() % 10 + '0';
+	char column = rand() % 10 + 'A';
+	return std::string() + column + line;
+}

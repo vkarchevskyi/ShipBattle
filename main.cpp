@@ -1,11 +1,11 @@
 #include "Controller.h"
-#include <iostream>
+// #include <iostream>
 
 using namespace std;
 
 int main()
 {
-	Controller controller;
+	Controller controller(false, true);
 	controller.startGame();
 
 

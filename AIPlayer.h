@@ -1,13 +1,15 @@
 #include "AbstractPlayer.h"
 
-class AI : public AbstractPlayer {
-protected:
-	virtual int* getDirectionVector(int);
+using namespace std;
+
+class AIPlayer : public AbstractPlayer {
+private:
+	string lastHitPoint;
+	int hitDirection[4]{ 0, 0, 0, 0 };
 public:
-	virtual int drawStars(const Ship& ship);
-	virtual int addShip(int, std::string, std::string);
-	virtual bool strike(int x, int y);
-	virtual void printField(bool);
-	virtual void replaceTempChars(bool);
-	virtual int getShipsRemain();
+	AIPlayer();
+	bool isAllDirectionZeros();
+	void zeroingDirections();
+	void setLastHitPoint(string);
+	string getHitPoint() override;
 };

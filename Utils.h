@@ -5,5 +5,6 @@
 
 class Utils {
 public:
-	std::string coordsFromInput(std::string);
+	static std::string coordsFromInput(std::string);
+	static std::string getRandomPoint();
 };
