@@ -97,7 +97,7 @@ bool AbstractPlayer::strike(int x, int y) {
 
 	if (*cell == EMPTY_CHAR) {
 		*cell = MISS_SHIP_CHAR;
-		*fogWarField.getCell(x, y) = MISS_SHIP_CHAR;
+		*this->fogWarField.getCell(x, y) = MISS_SHIP_CHAR;
 		return false;
 	}
 	else if (*cell == SHIP_CHAR) {
@@ -113,7 +113,7 @@ bool AbstractPlayer::strike(int x, int y) {
 					if (ship.hittedTimes == ship.size) {
 						this->drawStars(ship);
 						ships->erase(ships->begin() + j);
-						shipsRemain--;
+						this->shipsRemain--;
 					}
 					isWorking = false;
 					break;
@@ -126,7 +126,7 @@ bool AbstractPlayer::strike(int x, int y) {
 		return true;
 	}
 	else {
-		if (!this->isAI) {
+		if (this->isAI) { // ?
 			cout << "\nINCORRECT INPUT! PRESS ANY KEY TO TRY AGAIN\n";
 			_getch();
 		}
