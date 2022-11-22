@@ -56,15 +56,15 @@ void Controller::init() {
 
 void Controller::getInput(const int amount, std::string shipType) {
 
-	if (!currentPlayer->getIsAI()) {
-		string shipCoords[] = { "A1", "C1", "E1" };
-		string directions[] = { "4", "4", "4" };
-		currentPlayer->addShip(4, shipCoords[0], directions[0]);
-		currentPlayer->addShip(3, shipCoords[1], directions[1]);
-		currentPlayer->addShip(3, shipCoords[2], directions[2]);
-		currentPlayer->replaceTempChars(true);
-	}
-	else {
+	//if (!currentPlayer->getIsAI()) {
+	//	string shipCoords[] = { "A1", "C1", "E1" };
+	//	string directions[] = { "4", "4", "4" };
+	//	currentPlayer->addShip(4, shipCoords[0], directions[0]);
+	//	currentPlayer->addShip(3, shipCoords[1], directions[1]);
+	//	currentPlayer->addShip(3, shipCoords[2], directions[2]);
+	//	currentPlayer->replaceTempChars(true);
+	//}
+	//else {
 	int i = 0;
 	while (i < amount) {
 		std::string startPoint;
@@ -103,7 +103,7 @@ void Controller::getInput(const int amount, std::string shipType) {
 			currentPlayer->replaceTempChars(true);
 		}
 	}
-	}
+	//}
 }
 
 void Controller::changePlayer() {
