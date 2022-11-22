@@ -7,4 +7,5 @@ class Utils {
 public:
 	static std::string coordsFromInput(std::string);
 	static std::string getRandomPoint();
+	static void clearInputBuffer();
 };

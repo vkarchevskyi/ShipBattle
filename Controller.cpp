@@ -56,15 +56,15 @@ void Controller::init() {
 
 void Controller::getInput(const int amount, std::string shipType) {
 
-	//if (!currentPlayer->getIsAI()) {
-	//	string shipCoords[] = { "A1", "C1", "E1" };
-	//	string directions[] = { "4", "4", "4" };
-	//	currentPlayer->addShip(4, shipCoords[0], directions[0]);
-	//	currentPlayer->addShip(3, shipCoords[1], directions[1]);
-	//	currentPlayer->addShip(3, shipCoords[2], directions[2]);
-	//	currentPlayer->replaceTempChars(true);
-	//}
-	//else {
+	if (!currentPlayer->getIsAI()) {
+		string shipCoords[] = { "A1", "C1", "E1" };
+		string directions[] = { "4", "4", "4" };
+		currentPlayer->addShip(4, shipCoords[0], directions[0]);
+		currentPlayer->addShip(3, shipCoords[1], directions[1]);
+		currentPlayer->addShip(3, shipCoords[2], directions[2]);
+		currentPlayer->replaceTempChars(true);
+	}
+	else {
 	int i = 0;
 	while (i < amount) {
 		std::string startPoint;
@@ -78,6 +78,7 @@ void Controller::getInput(const int amount, std::string shipType) {
 				cout << "Enter the direction of " << shipType << ": \n";
 				cout << "(1 - left, 2 - up, 3 - right, 4 - down)\n";
 				cin >> direction;
+				Utils::clearInputBuffer();
 			}
 			else {
 				direction = "1";
@@ -102,7 +103,7 @@ void Controller::getInput(const int amount, std::string shipType) {
 			currentPlayer->replaceTempChars(true);
 		}
 	}
-	//}
+	}
 }
 
 void Controller::changePlayer() {
@@ -139,6 +140,7 @@ void Controller::startGame() {
 		shipsBeforeStrike = currentEnemy->getShipsRemain();
 		bool hit = currentEnemy->strike(hitPoint[0] - 'A', hitPoint[1] - '0');
 		currentEnemy->printField(true);
+		Utils::clearInputBuffer();
 		
 		if (hit) {
 
@@ -160,7 +162,9 @@ void Controller::startGame() {
 			continue;
 		}
 		
-		pressAnyKey();
+		if (currentEnemy->getIsAI())
+			pressAnyKey();
+
 		currentPlayerNum == 1 ? ++currentPlayerNum : --currentPlayerNum;
 		changePlayer();
 	} while (true);

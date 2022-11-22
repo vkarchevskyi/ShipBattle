@@ -10,6 +10,7 @@ int main()
 		cout << "Would like to play againt other player OR against ai?\n";
 		cout << "Or type exit to close this game\n";
 		cin >> answer;
+		Utils::clearInputBuffer();
 
 		if (answer == "exit") {
 			break;

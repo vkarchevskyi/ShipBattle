@@ -29,3 +29,8 @@ std::string Utils::getRandomPoint() {
 	char column = rand() % 10 + 'A';
 	return std::string() + column + line;
 }
+
+void Utils::clearInputBuffer() {
+	std::cin.clear();
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+}
