@@ -1,14 +1,28 @@
 #include "Controller.h"
-// #include <iostream>
 
 using namespace std;
 
 int main()
 {
-	Controller controller(false, true);
-	controller.startGame();
+	do {
+		bool secondPlayer = false;
+		string answer;
+		cout << "Would like to play againt other player OR against ai?\n";
+		cout << "Or type exit to close this game\n";
+		cin >> answer;
 
-
+		if (answer == "exit") {
+			break;
+		}
+		else if (answer == "ai") {
+			secondPlayer = true;
+		}
+		Controller controller(false, secondPlayer);
+		controller.startGame();
+		
+		cout << "\n\n";
+	} while (true);
+	
 	system("pause");
 	return 0;
 }
